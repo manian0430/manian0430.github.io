@@ -1,4 +1,8 @@
 /* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -6,199 +10,459 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-  }
-  
-  h1, h2, h3 {
+}
+
+h1, h2, h3 {
     font-weight: 600;
-  }
-  
-  .container {
+}
+
+.container {
     width: 80%;
     margin: 0 auto;
     overflow: hidden;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-  }
-  
-  header h1 {
+}
+
+/* Hero Section (Full-screen) */
+#hero {
+    background: url('/src/herowalp.jpg') no-repeat center center/cover; /* Galaxy background */
+    height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* White text for better contrast on dark background */
     text-align: center;
-    margin: 0;
-    font-size: 2.5em;
-  }
-  
-  nav {
-    text-align: center;
-  }
-  
-  nav a {
-    color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 1.1em;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Hero Section */
-  #hero {
-    background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
-    padding: 100px 0;
-    color: white;
-    text-align: center;
-  }
-  
-  #hero h2 {
-    font-size: 3em;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Heading (h2) */
+#hero h2 {
+    font-size: 4.5em; /* Larger font size for emphasis */
+    font-weight: 700; /* Bold heading */
+    color: #fff; /* White color for better contrast */
     margin-bottom: 20px;
-  }
-  
-  #hero p {
+    line-height: 1.3;
+    letter-spacing: 1px; /* Slight space between letters for better readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Slight text shadow for depth */
+}
+
+/* Hero Paragraph (p) */
+#hero p {
+    font-size: 1.8em; /* Slightly larger text for readability */
+    color: #fff; /* White color */
+    font-weight: 300; /* Lighter weight for the paragraph */
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow for crispness */
+}
+
+/* About Section Button */
+.learn-more-btn {
+    display: inline-block;
+    margin-top: 30px;
+    text-align: center;
+    position: relative; /* Ensure the button is positioned correctly */
+    z-index: 10; /* Make sure the button is above other elements */
+}
+
+/* Button Styling */
+.learn-more-btn button {
+    padding: 12px 25px;
+    background-color: #f04f63; /* Button color */
+    color: #fff; /* Ensure the button text is white */
     font-size: 1.2em;
-  }
-  
-  /* About Section */
-  #about {
+    font-weight: 600; /* Make the button text bold */
+    letter-spacing: 1px; /* Slight spacing to make the text more prominent */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase; /* Make the button text uppercase for more emphasis */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Optional, subtle text shadow for button */
+    text-rendering: optimizeLegibility; /* Ensure the text is crisp and sharp */
+}
+
+/* Hover Effect for Button */
+.learn-more-btn button:hover {
+    background-color: #d93b4d; /* Darker button on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* About Section */
+#about {
     padding: 60px 0;
     background-color: #fff;
-  }
-  
-  #about .content {
+    opacity: 0;
+    animation: fadeInUp 1s 0.3s forwards;
+}
+
+#about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* About Section Content Layout */
+#about .content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-  }
-  
-  #about .content img {
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  #about .text {
-    width: 45%;
-  }
-  
-  #about h2 {
+    justify-content: center; /* Center the content */
+    gap: 40px; /* Space between image and text */
+    flex-wrap: wrap; /* Make it responsive */
+}
+
+/* Profile Image Container */
+#about .profile-image-container {
+    width: 250px; /* Increased size of the image container */
+    height: 250px; /* Increased height to maintain the circle */
+    overflow: hidden; /* Hide the overflow */
+    border-radius: 50%; /* Make it circular */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile Image - Adjusting position */
+#about .profile-image {
+    width: 100%; /* Make the image fill the container */
+    height: 100%;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio while filling the circle */
+    object-position: center top; /* Ensure the image is aligned top-center to avoid cropping at the top */
+    border-radius: 50%; /* Round the edges of the image */
+}
+
+/* Text Section */
+#about .text {
+    width: 50%; /* Adjusted width for the text section */
+    max-width: 650px; /* Max width to prevent the text from becoming too wide */
+    text-align: left;
+}
+
+#about h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-  }
-  
-  #about p {
+    color: #333;
+}
+
+#about p {
     font-size: 1.2em;
     color: #555;
-  }
-  
-  /* Skills Section */
-  #skills {
-    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* What I Do Section */
+#what-i-do {
     padding: 60px 0;
-  }
-  
-  #skills h2 {
+    background-image: url('/src/devbg_2.jpg'); /* Your background image */
+    background-size: cover; /* Ensure the background image covers the whole section */
+    background-position: center center; /* Center the background image */
+    background-attachment: fixed; /* Optional: Creates a parallax effect */
+    color: #fff; /* White text color to contrast with the background */
+}
+
+#what-i-do h2 {
+    font-size: 2.5em;
+    color: #fff; /* Change text color to white */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#what-i-do .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-gap: 30px; /* Space between the boxes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#what-i-do .box {
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Thin line to separate boxes */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Optional: Slight dark background for better text contrast */
+}
+
+#what-i-do .box h3 {
+    font-size: 1.8em;
+    color: #fff; /* Ensure headings are readable */
+    margin-bottom: 15px;
+}
+
+#what-i-do .box p {
+    font-size: 1.2em;
+    color: #fff; /* Light text color to contrast with the darker background */
+    line-height: 1.6;
+}
+
+/* Skills Section */
+#skills {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    opacity: 0;
+    animation: fadeInUp 1s 0.6s forwards;
+}
+
+#skills .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#skills h2 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
-  }
-  
-  .skill-list {
+    color: #333;
+}
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.skill-category h3 {
+    font-size: 2em;
+    color: #f04f63;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-  }
-  
-  .skill {
+    justify-content: center;
+}
+
+.skill-category ul li {
+    font-size: 1.2em;
+    margin: 10px 20px;
     background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.skill-category ul li:hover {
+    background-color: #f04f63;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+/* Icon Animations */
+.skill-category ul li .tech-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-category ul li:hover .tech-icon {
+    transform: scale(1.2);  /* Scale up the icon when hovered */
+    filter: brightness(1.2); /* Slightly brighten the icon */
+}
+
+/* Pulse effect for icons on hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.skill-category ul li:hover .tech-icon {
+    animation: pulse 1s ease-in-out infinite; /* Pulse animation */
+}
+
+/* Experience Section */
+#experience {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+#experience h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Vertical Line for Timeline */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #ddd; /* Color of the vertical line */
+    transform: translateX(-50%); /* Ensure the line is centered exactly */
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    width: 45%; /* Reduced width to allow for spacing between items */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+/* Left Timeline Item */
+.timeline-item.left {
+    left: 0;
+    text-align: left;
+}
+
+/* Right Timeline Item */
+.timeline-item.right {
+    left: 55%; /* Position on the right side of the line */
+    text-align: right;
+}
+
+/* Timeline Box Content */
+.timeline-item .timeline-date {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.timeline-item .timeline-content {
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    text-align: center;
-    flex: 1 0 30%;
-    min-width: 250px;
-  }
-  
-  .skill h3 {
-    font-size: 1.8em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item .timeline-content h3 {
+    font-size: 1.6em;
+    color: #333;
     margin-bottom: 10px;
-  }
-  
-  /* Portfolio Section */
-  #portfolio {
+}
+
+.timeline-item .timeline-content p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* Portfolio Section */
+#portfolio {
     padding: 60px 0;
-  }
-  
-  #portfolio h2 {
+    opacity: 0;
+    animation: fadeInUp 1s 0.9s forwards;
+}
+
+#portfolio h2 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
-  }
-  
-  .portfolio-items {
+}
+
+.portfolio-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  
-  .portfolio-item {
+}
+
+.portfolio-item {
     width: 30%;
     margin: 10px 0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .portfolio-item img {
+}
+
+.portfolio-item img {
     width: 100%;
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .portfolio-item:hover img {
+}
+
+.portfolio-item:hover img {
     transform: scale(1.05);
-  }
-  
-  .portfolio-item .details {
+}
+
+.portfolio-item .details {
     padding: 15px;
     background-color: #fff;
     text-align: center;
-  }
-  
-  /* Contact Section */
-  #contact {
+}
+
+/* Contact Section */
+#contact {
     background-color: #333;
     color: #fff;
     padding: 60px 0;
-  }
-  
-  #contact h2 {
+    opacity: 0;
+    animation: fadeInUp 1s 1.2s forwards;
+}
+
+#contact h2 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
-  }
-  
-  .contact-form {
+}
+
+.contact-form {
     width: 50%;
     margin: 0 auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
+}
+
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
-  
-  .contact-form button {
+}
+
+.contact-form button {
     background-color: #f04f63;
     color: #fff;
     border: none;
@@ -206,22 +470,42 @@ body {
     font-size: 1.2em;
     cursor: pointer;
     border-radius: 4px;
-  }
-  
-  .contact-form button:hover {
+}
+
+.contact-form button:hover {
     background-color: #d93b4d;
-  }
-  
-  /* Footer */
-  footer {
+}
+
+/* Footer */
+footer {
     background-color: #222;
     color: #fff;
     padding: 20px 0;
     text-align: center;
-  }
-  
-  footer p {
+}
+
+footer p {
     margin: 0;
     font-size: 1em;
-  }
-  
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

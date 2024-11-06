@@ -7,46 +7,64 @@
   <title>My Portfolio</title>
   
   <!-- Link to External CSS File -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/style.css">
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for arrow icon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>My Portfolio</h1>
-      <nav>
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
   <!-- Hero Section -->
   <section id="hero">
-    <div class="container">
-      <h2>Hi, I'm [Your Name]</h2>
-      <p>A passionate web developer & designer</p>
+    <h2>Ian Managuelod</h2>
+    <p>Software Engineer</p>
+    <div class="learn-more-btn">
+        <button onclick="smoothScroll()">About me <i class="fa fa-arrow-down"></i></button>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about">
     <div class="container">
-      <div class="content">
-        <img src="https://via.placeholder.com/500" alt="Profile Picture">
-        <div class="text">
-          <h2>About Me</h2>
-          <p>I'm a creative and dedicated web developer with a strong passion for building interactive websites and applications. I have a wide range of skills, from front-end design to back-end development. I'm always looking for new challenges and opportunities to grow my skills!</p>
+        <div class="content">
+            <div class="profile-image-container">
+                <img src="/src/aboutmenobg.png" alt="Your Name" class="profile-image" />
+            </div>
+            <div class="text">
+                <h2>Hey, I'm Ian.</h2>
+                <p>I am a Software Engineer with over 5 years of experience and who's knowledgeable and skilled in different types of programming languages, Operating System</p>
+            </div>
         </div>
-      </div>
+    </div>
+  </section>
+
+  <!-- What I Do Section (4 Boxes, 2 Columns & 2 Rows) -->
+  <section id="what-i-do">
+    <div class="container">
+        <h2>What I Do</h2>
+        <div class="grid-container">
+            <div class="box">
+                <h3>Front-End Development</h3>
+                <p>I specialize in building responsive and user-friendly web interfaces using the latest front-end technologies like HTML, CSS, JavaScript, React, and Tailwind CSS.</p>
+            </div>
+            <div class="box">
+                <h3>Back-End Development</h3>
+                <p>I develop robust server-side applications using Node.js, Express.js, PHP, and Python, ensuring seamless integration with databases like MySQL and MongoDB.</p>
+            </div>
+            <div class="box">
+                <h3>Cloud Services</h3>
+                <p>I'm experienced in using Microsoft Azure and other cloud technologies for building scalable applications, integrating with APIs, and automating workflows using tools like Power Automate and Logic Apps.</p>
+            </div>
+            <div class="box">
+                <h3>Team Collaboration</h3>
+                <p>I enjoy collaborating with cross-functional teams, using tools like Microsoft Teams and SharePoint to foster communication and efficient project management within the team.</p>
+            </div>
+        </div>
     </div>
   </section>
 
@@ -54,52 +72,75 @@
   <section id="skills">
     <div class="container">
       <h2>My Skills</h2>
-      <div class="skill-list">
-        <div class="skill">
-          <h3>HTML</h3>
-          <p>Expert in crafting well-structured, semantic markup.</p>
-        </div>
-        <div class="skill">
-          <h3>CSS</h3>
-          <p>Experienced with responsive layouts and modern design techniques.</p>
-        </div>
-        <div class="skill">
-          <h3>JavaScript</h3>
-          <p>Proficient in creating dynamic and interactive web experiences.</p>
-        </div>
+      <div class="skill-category">
+        <h3>Front-End Tech Stack Tools</h3>
+        <ul>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/html5.svg" alt="HTML5" class="tech-icon"> HTML5</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/css3.svg" alt="CSS3" class="tech-icon"> CSS3</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/javascript.svg" alt="JavaScript" class="tech-icon"> JavaScript</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/react.svg" alt="React" class="tech-icon"> React</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/bootstrap.svg" alt="Bootstrap" class="tech-icon"> Bootstrap</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/tailwindcss.svg" alt="Tailwind CSS" class="tech-icon"> Tailwind CSS</li>
+        </ul>
+      </div>
+  
+      <div class="skill-category">
+        <h3>Back-End Tech Stack Tools</h3>
+        <ul>
+          <li><img src="/src/nodedotjs.svg" alt="Node.js" class="tech-icon"> Node.js</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/express.svg" alt="Express.js" class="tech-icon"> Express.js</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/php.svg" alt="PHP" class="tech-icon"> PHP</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/python.svg" alt="Python" class="tech-icon"> Python</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mysql.svg" alt="MySQL" class="tech-icon"> SQL / MySQL</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mongodb.svg" alt="MongoDB" class="tech-icon"> MongoDB</li>
+          <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/graphql.svg" alt="GraphQL" class="tech-icon"> GraphQL</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio">
+<!-- Experience Section -->
+<section id="experience">
     <div class="container">
-      <h2>My Portfolio</h2>
-      <div class="portfolio-items">
-        <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300" alt="Project 1">
-          <div class="details">
-            <h3>Project 1</h3>
-            <p>Description of the project.</p>
-          </div>
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-date">2022 - Present</div>
+                <!-- Remove the icon here -->
+                <div class="timeline-icon">
+                    <!-- <i class="fas fa-briefcase"></i> -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Software Engineer</h3>
+                    <p>Company Name - Developed a range of applications, working in both frontend and backend using React, Node.js, and MongoDB.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-date">2020 - 2022</div>
+                <!-- Remove the icon here -->
+                <div class="timeline-icon">
+                    <!-- <i class="fas fa-code"></i> -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Junior Web Developer</h3>
+                    <p>Company Name - Contributed to the development of multiple web applications, working with HTML, CSS, JavaScript, and PHP.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-date">2018 - 2020</div>
+                <!-- Remove the icon here -->
+                <div class="timeline-icon">
+                    <!-- <i class="fas fa-laptop-code"></i> -->
+                </div>
+                <div class="timeline-content">
+                    <h3>Intern - Software Development</h3>
+                    <p>Company Name - Assisted in building internal tools using Python and SQL, as well as integrating APIs for various systems.</p>
+                </div>
+            </div>
         </div>
-        <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300" alt="Project 2">
-          <div class="details">
-            <h3>Project 2</h3>
-            <p>Description of the project.</p>
-          </div>
-        </div>
-        <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300" alt="Project 3">
-          <div class="details">
-            <h3>Project 3</h3>
-            <p>Description of the project.</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact">
@@ -120,6 +161,16 @@
   <footer>
     <p>&copy; 2024 [Your Name]. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Function to smoothly scroll to the About section
+    function smoothScroll() {
+        // Scroll to the About section
+        document.getElementById('about').scrollIntoView({
+            behavior: 'smooth' // Smooth scroll behavior
+        });
+    }
+  </script>
 
 </body>
 </html>
