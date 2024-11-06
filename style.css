@@ -24,7 +24,8 @@ h1, h2, h3 {
 
 /* Hero Section (Full-screen) */
 #hero {
-    background: url('/src/herowalp.jpg') no-repeat center center/cover; /* Galaxy background */
+    background: url('/src/111.jpg') no-repeat center center/cover; /* Galaxy background */
+    background-attachment: fixed; /* Optional: Creates a parallax effect */
     height: 100vh; /* Full screen height */
     display: flex;
     flex-direction: column;
@@ -170,7 +171,7 @@ h1, h2, h3 {
 /* What I Do Section */
 #what-i-do {
     padding: 60px 0;
-    background-image: url('/src/devbg_2.jpg'); /* Your background image */
+    background-image: url('/src/222.jpg'); /* Your background image */
     background-size: cover; /* Ensure the background image covers the whole section */
     background-position: center center; /* Center the background image */
     background-attachment: fixed; /* Optional: Creates a parallax effect */
