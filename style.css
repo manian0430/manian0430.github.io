@@ -317,75 +317,144 @@ h1, h2, h3 {
     text-align: center;
 }
 
+/* Updated Timeline Styles */
+/* Timeline Section */
 .timeline {
     position: relative;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 50px auto;
+    padding: 20px 0;
 }
 
-/* Vertical Line for Timeline */
+/* Center Vertical Line */
 .timeline::before {
     content: "";
     position: absolute;
     top: 0;
     left: 50%;
-    width: 2px;
+    width: 3px;
     height: 100%;
-    background-color: #ddd; /* Color of the vertical line */
-    transform: translateX(-50%); /* Ensure the line is centered exactly */
+    background-color: #007BFF;
+    transform: translateX(-50%);
 }
 
 /* Timeline Item */
 .timeline-item {
     position: relative;
-    width: 45%; /* Reduced width to allow for spacing between items */
+    width: 45%;
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 50px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Left Timeline Item */
+/* Alternating Left and Right Placement */
 .timeline-item.left {
     left: 0;
     text-align: left;
 }
 
-/* Right Timeline Item */
 .timeline-item.right {
-    left: 55%; /* Position on the right side of the line */
-    text-align: right;
+    left: 55%;
+    text-align: left;
 }
 
-/* Timeline Box Content */
-.timeline-item .timeline-date {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
-    width: 200px;
-    text-align: center;
+/* ✅ FIXED: Date Circle Centered on Timeline Line */
+.timeline-date {
+    position: absolute;
+    top: 50%; /* Aligns vertically with the middle of the card */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ensures it's centered */
+    background: #333;
+    color: #fff;
     padding: 10px;
-    background-color: #ddd;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
 
-.timeline-item .timeline-content {
-    background: #fff;
+/* 🔥 Adjust Date Circles to Stay Centered on Timeline */
+.timeline-item.left .timeline-date {
+    left: calc(50% + 250px); /* Moves left date circle properly */
+}
+
+.timeline-item.right .timeline-date {
+    left: calc(50% - 250px); /* Moves right date circle properly */
+}
+
+
+/* Header Banner */
+.timeline-header {
+    background: #ff4f4f;
+    color: white;
+    padding: 12px 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    z-index: 5;
+}
+
+/* Alternating Colors */
+.timeline-item:nth-child(odd) .timeline-header {
+    background: #ff4f4f;
+}
+
+.timeline-item:nth-child(even) .timeline-header {
+    background: #1abc9c;
+}
+
+/* Timeline Content */
+.timeline-content {
     padding: 20px;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 0 0 8px 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-item .timeline-content h3 {
-    font-size: 1.6em;
-    color: #333;
-    margin-bottom: 10px;
+/* Fix Cutout in Header */
+.timeline-header::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: inherit transparent transparent transparent;
 }
 
-.timeline-item .timeline-content p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
+/* Responsive Fix */
+@media screen and (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item.right {
+        left: 0;
+    }
+
+    /* Center Dates on Small Screens */
+    .timeline-date {
+        left: 20px;
+        transform: none;
+    }
 }
 
 
