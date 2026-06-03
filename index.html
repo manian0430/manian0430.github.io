@@ -1,219 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Portfolio</title>
-  
-  <!-- Link to External CSS File -->
-  <link rel="stylesheet" href="/style.css">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for arrow icon -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Hero Section -->
-  <section id="hero">
-    <h2>Ian Managuelod</h2>
-    <p>Software Engineer</p>
-    <div class="learn-more-btn">
-        <button onclick="smoothScroll()">About me <i class="fa fa-arrow-down"></i></button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-        <div class="content">
-            <div class="profile-image-container">
-                <img src="/src/aboutmenobg.png" alt="Your Name" class="profile-image" />
-            </div>
-            <div class="text">
-                <h2>Hey, I'm Ian.</h2>
-                <p>I am a Software Engineer with over 5 years of experience and who's knowledgeable and skilled in different types of programming languages, Operating System</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- What I Do Section (4 Boxes, 2 Columns & 2 Rows) -->
-  <section id="what-i-do">
-    <div class="container">
-        <h2>What I Do</h2>
-        <div class="grid-container">
-            <div class="box">
-                <h3>Front-End Development</h3>
-                <p>I specialize in building responsive and user-friendly web interfaces using the latest front-end technologies like HTML, CSS, JavaScript, React, and Tailwind CSS.</p>
-            </div>
-            <div class="box">
-                <h3>Back-End Development</h3>
-                <p>I develop robust server-side applications using Node.js, Express.js, PHP, and Python, ensuring seamless integration with databases like MySQL and MongoDB.</p>
-            </div>
-            <div class="box">
-                <h3>Cloud Services</h3>
-                <p>I'm experienced in using Microsoft Azure and other cloud technologies for building scalable applications, integrating with APIs, and automating workflows using tools like Power Automate and Logic Apps.</p>
-            </div>
-            <div class="box">
-                <h3>Team Collaboration</h3>
-                <p>I enjoy collaborating with cross-functional teams, using tools like Microsoft Teams and SharePoint to foster communication and efficient project management within the team.</p>
-            </div>
-        </div>
-    </div>
-  </section>
-
-<!-- Azure & Tech Expertise Section -->
-<section id="skills">
-  <div class="container">
-    <h2>My Expertise</h2>
-    
-    <!-- Front-End Technologies -->
-    <div class="skill-category">
-      <h3>Front-End Technologies</h3>
-      <ul>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/html5.svg" alt="HTML5" class="tech-icon"> HTML5</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/css3.svg" alt="CSS3" class="tech-icon"> CSS3</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/javascript.svg" alt="JavaScript" class="tech-icon"> JavaScript</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/react.svg" alt="React" class="tech-icon"> React</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/bootstrap.svg" alt="Bootstrap" class="tech-icon"> Bootstrap</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/tailwindcss.svg" alt="Tailwind CSS" class="tech-icon"> Tailwind CSS</li>
-      </ul>
-    </div>
-
-    <!-- Back-End Technologies -->
-    <div class="skill-category">
-      <h3>Back-End Technologies</h3>
-      <ul>
-        <li><img src="/src/nodedotjs.svg" alt="Node.js" class="tech-icon"> Node.js</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/express.svg" alt="Express.js" class="tech-icon"> Express.js</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/php.svg" alt="PHP" class="tech-icon"> PHP</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/python.svg" alt="Python" class="tech-icon"> Python</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mysql.svg" alt="SQL/MySQL" class="tech-icon"> SQL / MySQL</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/mongodb.svg" alt="MongoDB" class="tech-icon"> MongoDB</li>
-        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/graphql.svg" alt="GraphQL" class="tech-icon"> GraphQL</li>
-      </ul>
-    </div>
-
-    <!-- Azure & Cloud Technologies -->
-    <div class="skill-category">
-      <h3>Azure & Cloud Technologies</h3>
-      <ul>
-        <li><img src="https://img.icons8.com/office/40/microsoft-power-apps.png" alt="microsoft-power-apps" alt="Power Apps" class="tech-icon"> Power Apps</li>
-        <li><img src="https://img.icons8.com/office/40/microsoft-power-automate-2020.png" alt="Power Automate" class="tech-icon"> Power Automate</li>
-        <li><img src="https://img.icons8.com/ios-filled/50/power-bi.png" alt="Power BI" class="tech-icon"> Power BI</li>
-        <li><img src="/src/logic-apps.png" alt="Azure Logic Apps" class="tech-icon"> Azure Logic Apps</li>
-        <li><img src="https://img.icons8.com/fluency/48/microsoft-sharepoint-2019.png" alt="SharePoint" class="tech-icon"> SharePoint</li>
-        <li><img src="https://img.icons8.com/fluency/48/microsoft-infopath.png" alt="InfoPath" class="tech-icon"> InfoPath</li>
-        <li><img src="https://img.icons8.com/color/48/azure-storage--v1.png" alt="Azure Storage" class="tech-icon"> Azure Storage</li>
-        <li><img src="https://img.icons8.com/color/48/azure-active-directory.png" alt="Azure Active Directory" class="tech-icon"> Azure Active Directory</li>
-        <li><img src="/src/AzureDevops.png" alt="Azure DevOps" class="tech-icon"> Azure DevOps</li>
-        <li><img src="https://img.icons8.com/color/48/azure-service-bus--v1.png" alt="Azure App Services" class="tech-icon"> Azure App Services</li>
-        <li><img src="https://img.icons8.com/color/48/microsoft-sql-server.png" alt="Azure SQL Database" class="tech-icon"> Azure SQL Server</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Experience Section -->
-<div class="timeline">
-
-  <!-- Freelance Web Developer (Left) -->
-  <div class="timeline-item left">
-      <div class="timeline-date">2017 - Present</div>
-      <div class="timeline-header">Freelance Web Developer</div>
-      <div class="timeline-content">
-          <p><strong>Platforms:</strong> Upwork, WeWork, OnlineJobsPH</p>
-          <ul>
-              <li>Developed Odoo web applications for HR, sales, and e-commerce.</li>
-              <li>Built Shopify and WordPress e-commerce projects.</li>
-              <li>Worked on Microsoft Dynamics 365 integrations.</li>
-          </ul>
-      </div>
-  </div>
-
-  <!-- Technical Lead (Right) -->
-  <div class="timeline-item right">
-      <div class="timeline-date">2019 - 2020</div>
-      <div class="timeline-header">Technical Lead</div>
-      <div class="timeline-content">
-          <p><strong>Company:</strong> RBT Consulting Corporation</p>
-          <ul>
-              <li>Led Odoo and Django-based client projects.</li>
-              <li>Managed backend development for web applications.</li>
-              <li>Maintained databases, reducing software costs by 15%.</li>
-          </ul>
-      </div>
-  </div>
-
-  <!-- Software Developer (Left) -->
-  <div class="timeline-item left">
-      <div class="timeline-date">2020 - 2021</div>
-      <div class="timeline-header">Software Developer</div>
-      <div class="timeline-content">
-          <p><strong>Company:</strong> David James Development</p>
-          <ul>
-              <li>Developed customized Odoo core applications.</li>
-              <li>Followed Agile methodologies for software delivery.</li>
-              <li>Utilized pair programming to ensure high-quality code.</li>
-          </ul>
-      </div>
-  </div>
-
-  <!-- Digital Systems Development Officer (Right) -->
-  <div class="timeline-item right">
-      <div class="timeline-date">March 2022 - Sept 2023</div>
-      <div class="timeline-header">Digital Systems Development Officer</div>
-      <div class="timeline-content">
-          <p><strong>Company:</strong> EastWest Bank</p>
-          <ul>
-              <li>Enhanced digital infrastructure for customer applications.</li>
-              <li>Developed AI-powered chatbots and facial recognition tools.</li>
-              <li>Created Power BI dashboards for better data insights.</li>
-          </ul>
-      </div>
-  </div>
-
-</div>
-
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <div class="contact-form">
-        <form id="contact-form" action="https://formspree.io/f/movqdebe" method="POST">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-          <button type="submit">Send Message</button>
-          <input type="hidden" name="_redirect" value="https://manian0430.github.io/">
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Ian Managuelod. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    // Function to smoothly scroll to the About section
-    function smoothScroll() {
-        // Scroll to the About section
-        document.getElementById('about').scrollIntoView({
-            behavior: 'smooth' // Smooth scroll behavior
-        });
-    }
-  </script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ian Managuelod — Full Stack Developer & AI Engineer</title>
+    <meta
+      name="description"
+      content="Full Stack Developer with 6+ years building scalable web apps, mobile apps, and AI automation with Python, React, Node.js, and conversational AI."
+    />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
