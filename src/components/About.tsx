@@ -9,8 +9,8 @@ export function About() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading index="01" title="About" />
 
-        <div className="grid items-start gap-10 md:grid-cols-2">
-          <Reveal direction="right">
+        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
+          <Reveal>
             <div className="space-y-4 text-lg leading-relaxed text-ink-soft">
               <p>
                 I turn ideas into production software — architecting REST APIs, wiring data layers and building polished
@@ -45,7 +45,7 @@ export function About() {
           </Reveal>
 
           {/* Terminal card */}
-          <Reveal direction="left">
+          <Reveal className="min-w-0">
             <div className="card overflow-hidden">
               <div className="flex items-center gap-2 border-b border-line bg-surface-2 px-4 py-3">
                 <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />

@@ -39,7 +39,7 @@ export function Skills() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading index="02" title="Skills" subtitle="The stack I build, ship and scale with." />
 
-        <div className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           {/* Interactive orbit, sticky on desktop */}
           <div className="lg:sticky lg:top-24">
             <OrbitingSkills />

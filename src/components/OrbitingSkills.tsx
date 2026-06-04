@@ -22,22 +22,33 @@ const items: Item[] = [
   { slug: 'claude', label: 'Claude', ring: 1 },
 ]
 
-const rings = [
-  { r: 92, speed: 0.28, color: '34,197,94', node: 46 }, // green inner
-  { r: 165, speed: -0.2, color: '56,189,248', node: 40 }, // cyan outer
+// fractions of the container size — keeps the whole system inside its box at any width
+const RINGS = [
+  { rf: 0.25, speed: 0.28, color: '34,197,94', nf: 0.135 }, // green inner
+  { rf: 0.43, speed: -0.2, color: '56,189,248', nf: 0.115 }, // cyan outer
 ]
 
 const counts = [items.filter((i) => i.ring === 0).length, items.filter((i) => i.ring === 1).length]
-const indexInRing = (arr: Item[], item: Item) => arr.filter((i) => i.ring === item.ring).indexOf(item)
+const indexInRing = (item: Item) => items.filter((i) => i.ring === item.ring).indexOf(item)
 
 export function OrbitingSkills() {
+  const boxRef = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState(300)
   const [t, setT] = useState(0)
   const paused = useRef(false)
-  const reduced = useRef(false)
 
   useEffect(() => {
-    reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced.current) return
+    const el = boxRef.current
+    if (!el) return
+    const update = () => setSize(el.clientWidth)
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     let raf = 0
     let last = performance.now()
     const loop = (now: number) => {
@@ -50,20 +61,23 @@ export function OrbitingSkills() {
     return () => cancelAnimationFrame(raf)
   }, [])
 
+  const core = size * 0.2
+
   return (
     <div
-      className="relative mx-auto h-[340px] w-[340px] sm:h-[400px] sm:w-[400px]"
+      ref={boxRef}
+      className="relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-[380px]"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
     >
       {/* orbit rings */}
-      {rings.map((ring, ri) => (
+      {RINGS.map((ring, ri) => (
         <div
           key={ri}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
-            width: ring.r * 2,
-            height: ring.r * 2,
+            width: ring.rf * size * 2,
+            height: ring.rf * size * 2,
             border: `1px solid rgba(${ring.color},0.25)`,
             boxShadow: `inset 0 0 40px rgba(${ring.color},0.08), 0 0 30px rgba(${ring.color},0.06)`,
           }}
@@ -71,21 +85,25 @@ export function OrbitingSkills() {
       ))}
 
       {/* core */}
-      <div className="absolute left-1/2 top-1/2 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface-2">
+      <div
+        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface-2"
+        style={{ width: core, height: core }}
+      >
         <div className="absolute inset-0 rounded-full bg-accent/25 blur-xl" />
         <div className="absolute inset-0 rounded-full bg-cyan/20 blur-2xl" />
-        <Code2 className="relative h-8 w-8 text-accent" strokeWidth={2} />
+        <Code2 className="relative text-accent" strokeWidth={2} style={{ width: core * 0.42, height: core * 0.42 }} />
       </div>
 
       {/* orbiting nodes */}
       {items.map((item) => {
-        const ring = rings[item.ring]
+        const ring = RINGS[item.ring]
         const n = counts[item.ring]
-        const phase = (indexInRing(items, item) / n) * Math.PI * 2
+        const phase = (indexInRing(item) / n) * Math.PI * 2
         const angle = t * ring.speed + phase
-        const x = Math.cos(angle) * ring.r
-        const y = Math.sin(angle) * ring.r
-        return <Node key={item.slug} item={item} x={x} y={y} size={ring.node} color={ring.color} />
+        const r = ring.rf * size
+        const x = Math.cos(angle) * r
+        const y = Math.sin(angle) * r
+        return <Node key={item.slug} item={item} x={x} y={y} size={ring.nf * size} color={ring.color} />
       })}
     </div>
   )
