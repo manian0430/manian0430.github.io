@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, Github } from 'lucide-react'
+import { Menu, X, Github, Download } from 'lucide-react'
 import { navLinks, profile } from '../data/content'
 
 export function Navbar() {
@@ -63,6 +63,13 @@ export function Navbar() {
           >
             <Github className="h-5 w-5" />
           </a>
+          <a
+            href={`${import.meta.env.BASE_URL}IanManaguelodCV.pdf`}
+            download
+            className="mono inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-[12px] text-ink-soft transition-colors hover:border-accent hover:text-accent"
+          >
+            <Download className="h-3.5 w-3.5" /> CV
+          </a>
         </div>
 
         <button className="text-ink md:hidden" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((v) => !v)}>
@@ -90,6 +97,14 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
+              <a
+                href={`${import.meta.env.BASE_URL}IanManaguelodCV.pdf`}
+                download
+                onClick={() => setOpen(false)}
+                className="mono inline-flex items-center gap-2 py-3.5 text-[14px] text-accent"
+              >
+                <Download className="h-4 w-4" /> Download CV
+              </a>
             </div>
           </motion.div>
         )}

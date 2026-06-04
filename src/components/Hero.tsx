@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, Github, Mail } from 'lucide-react'
+import { ArrowRight, Download, Mail } from 'lucide-react'
 import { profile, stats } from '../data/content'
 import { Counter } from './ui/Counter'
 import { Marquee } from './Marquee'
@@ -85,11 +85,11 @@ export function Hero() {
               <a href="#projects" className="btn-accent">
                 View Projects <ArrowRight className="h-4 w-4" />
               </a>
+              <a href={`${import.meta.env.BASE_URL}IanManaguelodCV.pdf`} download className="btn-outline">
+                <Download className="h-4 w-4" /> Download CV
+              </a>
               <a href="#contact" className="btn-outline">
                 <Mail className="h-4 w-4" /> Get in touch
-              </a>
-              <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn-outline" aria-label="GitHub">
-                <Github className="h-4 w-4" /> GitHub
               </a>
             </motion.div>
 

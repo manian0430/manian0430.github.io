@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Lock, Star, Terminal } from 'lucide-react'
+import { ArrowUpRight, Lock, Star, Terminal, Zap } from 'lucide-react'
 import { SectionHeading } from './ui/SectionHeading'
 import { StaggerGroup, staggerItem } from './ui/Reveal'
 import { projects, type Project } from '../data/content'
@@ -54,6 +54,11 @@ function Card({ p }: { p: Project }) {
           </div>
           <span className="mono whitespace-nowrap text-xs text-ink-faint">{p.year}</span>
         </div>
+        {p.metric && (
+          <p className="mono mt-2 inline-flex w-fit items-center gap-1.5 rounded-md bg-accent/10 px-2 py-1 text-xs text-accent">
+            <Zap className="h-3 w-3" /> {p.metric}
+          </p>
+        )}
         <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{p.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {p.tech.map((t) => (
@@ -66,7 +71,7 @@ function Card({ p }: { p: Project }) {
     </>
   )
 
-  const cls = `card group flex flex-col overflow-hidden p-0 ${p.featured ? 'lg:col-span-2' : ''}`
+  const cls = `card group flex flex-col overflow-hidden p-0 ${p.featured ? 'sm:col-span-2' : ''}`
 
   return p.link ? (
     <motion.a variants={staggerItem} href={p.link} target="_blank" rel="noopener noreferrer" className={cls}>
@@ -85,7 +90,7 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading index="03" title="Projects" subtitle="Products and platforms I've designed, built and shipped." />
 
-        <StaggerGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {projects.map((p) => (
             <Card key={p.name} p={p} />
           ))}

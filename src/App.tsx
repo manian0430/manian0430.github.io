@@ -1,3 +1,4 @@
+import { ScrollProgress } from './components/ui/ScrollProgress'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
@@ -10,6 +11,7 @@ import { Footer } from './components/Footer'
 export default function App() {
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
