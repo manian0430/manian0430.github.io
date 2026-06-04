@@ -4,7 +4,7 @@ import { ArrowRight, Download, Mail } from 'lucide-react'
 import { profile, stats } from '../data/content'
 import { Counter } from './ui/Counter'
 import { Marquee } from './Marquee'
-import profileImg from '../assets/profile.png'
+import profileImg from '../assets/profile.webp'
 
 const ease = [0.22, 1, 0.36, 1] as const
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } } }
