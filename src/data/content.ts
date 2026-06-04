@@ -5,6 +5,8 @@ export const profile = {
   role: 'Full Stack Developer',
   roles: ['Full Stack Developer', 'AI Automation Engineer', 'Cloud-Native Builder'],
   tagline: 'Building scalable web apps, mobile apps & AI agents.',
+  intro:
+    'I design and ship full-stack products and AI automation — scalable web apps, cross-platform mobile, and intelligent voice agents that actually make it to production.',
   summary:
     'Full Stack Developer with 6+ years building scalable web applications, mobile apps, and REST APIs with Python, JavaScript/TypeScript, Node.js, and PHP. Specialized in AI automation and conversational AI — integrating Retell AI, OpenAI GPT, and Claude into intelligent voice agents and AI-powered products.',
   location: 'Philippines',
@@ -62,11 +64,34 @@ export interface Project {
   description: string
   tech: string[]
   link?: string
+  image?: string
   featured?: boolean
   year: string
 }
 
 export const projects: Project[] = [
+  {
+    name: 'Reeve',
+    tagline: 'AI brand & ad content, from a URL',
+    description:
+      'Drop a URL and Reeve deep-dives your brand DNA, competitors and ad strategy — then generates custom social content and ads tailored to the brand. Built under MindFortress.',
+    tech: ['Next.js', 'React', 'Python', 'OpenAI', 'Supabase'],
+    link: 'https://meetreeve.com',
+    image: '/shots/reeve.png',
+    featured: true,
+    year: '2025',
+  },
+  {
+    name: 'Freya',
+    tagline: 'The writing partner who never forgets',
+    description:
+      'An AI writing partner for storytellers — keeps a live Story Bible of characters, locations and lore, and flags continuity errors as you write. React/Next.js front end on a Python LLM backend.',
+    tech: ['Next.js', 'React', 'Python', 'OpenAI', 'Claude'],
+    link: 'https://meetfreya.com',
+    image: '/shots/freya.png',
+    featured: true,
+    year: '2025',
+  },
   {
     name: 'Callivate.ai',
     tagline: 'AI workforce for automotive dealerships',
@@ -74,6 +99,7 @@ export const projects: Project[] = [
       'AI-powered platform with 8 specialized voice agents handling sales, service, parts, finance and reception 24/7. Built automation across SMS, payments and CRM, with end-to-end encrypted Supabase storage, VIN lookup and real-time sync.',
     tech: ['Retell AI', 'n8n', 'Supabase', 'React', 'Python', 'Stripe'],
     link: 'https://callivate.ai',
+    image: '/shots/callivate.png',
     featured: true,
     year: '2025',
   },
@@ -84,7 +110,7 @@ export const projects: Project[] = [
       'Laravel 8 site with an AI live-chat assistant (OpenAI GPT) for real-time property leads, a Next.js CRM on Vercel + Supabase, and an n8n pipeline that captures, enriches and routes leads. RAG with Pinecone deployed on Cloud Run.',
     tech: ['Laravel', 'Next.js', 'FastAPI', 'Pinecone', 'n8n', 'Supabase'],
     link: 'https://senw.io',
-    featured: true,
+    image: '/shots/senw.png',
     year: '2025',
   },
   {
@@ -93,6 +119,7 @@ export const projects: Project[] = [
     description: 'Full-stack marketing and product website built with a 3-person team.',
     tech: ['Next.js', 'React', 'Tailwind'],
     link: 'https://mindfortress.com',
+    image: '/shots/mindfortress.png',
     year: '2025',
   },
   {
@@ -101,6 +128,7 @@ export const projects: Project[] = [
     description: 'One of four production sites shipped with the Mindfortress team.',
     tech: ['Next.js', 'React', 'Supabase'],
     link: 'https://textlands.com',
+    image: '/shots/textlands.png',
     year: '2025',
   },
   {
@@ -109,6 +137,7 @@ export const projects: Project[] = [
     description: 'Full-stack product site for AI agent tooling.',
     tech: ['Next.js', 'React', 'Node.js'],
     link: 'https://agentpik.com',
+    image: '/shots/agentpik.png',
     year: '2025',
   },
   {
@@ -117,6 +146,7 @@ export const projects: Project[] = [
     description: 'Full-stack web product shipped with the Mindfortress team.',
     tech: ['Next.js', 'React', 'Supabase'],
     link: 'https://parentglue.com',
+    image: '/shots/parentglue.png',
     year: '2025',
   },
   {

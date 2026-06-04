@@ -13,15 +13,16 @@ export function About() {
           <Reveal direction="right">
             <div className="space-y-4 text-lg leading-relaxed text-ink-soft">
               <p>
-                I'm a full-stack developer with <span className="text-ink">6+ years</span> turning ideas into
-                production software — scalable web apps, cross-platform mobile, and REST APIs across Python, JavaScript
-                and PHP ecosystems.
+                I turn ideas into production software — architecting REST APIs, wiring data layers and building polished
+                interfaces across <span className="text-ink">Python</span>, <span className="text-ink">JavaScript</span>{' '}
+                and <span className="text-ink">PHP</span> ecosystems, with a bias for clean architecture, CI/CD and code
+                that scales.
               </p>
               <p>
                 Lately I've gone deep on <span className="text-accent">AI automation</span> and conversational AI —
                 wiring <span className="text-ink">Retell AI</span>, <span className="text-ink">OpenAI GPT</span> and{' '}
                 <span className="text-ink">Claude</span> into voice agents, RAG systems and workflow automation with
-                n8n, Zapier and Make.com — all shipped on AWS, Azure and GCP with CI/CD.
+                n8n, Zapier and Make.com — all shipped on AWS, Azure and GCP.
               </p>
 
               <div className="pt-4">

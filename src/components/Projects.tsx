@@ -1,44 +1,72 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Lock, Star } from 'lucide-react'
+import { ArrowUpRight, Lock, Star, Terminal } from 'lucide-react'
 import { SectionHeading } from './ui/SectionHeading'
 import { StaggerGroup, staggerItem } from './ui/Reveal'
 import { projects, type Project } from '../data/content'
 
+function Preview({ p }: { p: Project }) {
+  if (p.image) {
+    return (
+      <img
+        src={`${import.meta.env.BASE_URL}${p.image.replace(/^\//, '')}`}
+        alt={`Screenshot of ${p.name}`}
+        loading="lazy"
+        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+    )
+  }
+  return (
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-2 to-surface">
+      <Terminal className="h-10 w-10 text-ink-faint" />
+    </div>
+  )
+}
+
 function Card({ p }: { p: Project }) {
   const inner = (
     <>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          {p.featured && (
-            <span className="mono mb-2 inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-0.5 text-[11px] text-accent">
-              <Star className="h-3 w-3" /> Featured
-            </span>
-          )}
-          <h3 className="text-xl font-bold text-ink">{p.name}</h3>
-          <p className="mt-0.5 text-sm font-medium text-accent">{p.tagline}</p>
-        </div>
+      {/* Preview */}
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-surface-2">
+        <Preview p={p} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent" />
+        {p.featured && (
+          <span className="mono absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-bg/80 px-2 py-0.5 text-[11px] text-accent backdrop-blur">
+            <Star className="h-3 w-3" /> Featured
+          </span>
+        )}
         {p.link ? (
-          <ArrowUpRight className="h-5 w-5 flex-shrink-0 text-ink-faint transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+          <span className="mono absolute right-3 top-3 inline-flex translate-y-1 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[11px] font-medium text-[#06210f] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+            Visit site <ArrowUpRight className="h-3 w-3" />
+          </span>
         ) : (
-          <span className="mono inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-faint">
+          <span className="mono absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-line bg-bg/80 px-2 py-0.5 text-[11px] text-ink-faint backdrop-blur">
             <Lock className="h-3 w-3" /> private
           </span>
         )}
       </div>
 
-      <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{p.description}</p>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {p.tech.map((t) => (
-          <span key={t} className="mono rounded-md bg-surface-2 px-2 py-0.5 text-xs text-ink-soft">
-            {t}
-          </span>
-        ))}
+      {/* Content */}
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-lg font-bold text-ink transition-colors group-hover:text-accent">{p.name}</h3>
+            <p className="mt-0.5 text-sm font-medium text-accent">{p.tagline}</p>
+          </div>
+          <span className="mono whitespace-nowrap text-xs text-ink-faint">{p.year}</span>
+        </div>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{p.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {p.tech.map((t) => (
+            <span key={t} className="mono rounded-md bg-surface-2 px-2 py-0.5 text-xs text-ink-soft">
+              {t}
+            </span>
+          ))}
+        </div>
       </div>
     </>
   )
 
-  const cls = `card group flex flex-col p-6 ${p.featured ? 'sm:col-span-2' : ''}`
+  const cls = `card group flex flex-col overflow-hidden p-0 ${p.featured ? 'lg:col-span-2' : ''}`
 
   return p.link ? (
     <motion.a variants={staggerItem} href={p.link} target="_blank" rel="noopener noreferrer" className={cls}>
@@ -57,7 +85,7 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading index="03" title="Projects" subtitle="Products and platforms I've designed, built and shipped." />
 
-        <StaggerGroup className="grid auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <Card key={p.name} p={p} />
           ))}
