@@ -49,8 +49,7 @@ function StatusPill() {
 export function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen flex-col overflow-hidden pt-24">
-      {/* Backdrop */}
-      <div className="bg-grid pointer-events-none absolute inset-0 -z-20 opacity-60" aria-hidden />
+      {/* Backdrop (global particle network shows through; keep color glows here) */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{

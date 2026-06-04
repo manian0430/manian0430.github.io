@@ -11,6 +11,7 @@ import {
   Shield,
   Activity,
   Plug,
+  Rocket,
   type LucideIcon,
 } from 'lucide-react'
 import type { IconName } from '../../data/content'
@@ -28,6 +29,7 @@ const map: Record<IconName, LucideIcon> = {
   shield: Shield,
   activity: Activity,
   plug: Plug,
+  rocket: Rocket,
 }
 
 export function Icon({ name, className }: { name: IconName; className?: string }) {

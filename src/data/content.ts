@@ -42,20 +42,22 @@ export type IconName =
   | 'shield'
   | 'activity'
   | 'plug'
+  | 'rocket'
 
 export const skillGroups: SkillGroup[] = [
   { title: 'Languages', icon: 'code', items: ['Python', 'JavaScript', 'TypeScript', 'PHP', 'C# .NET', 'HTML', 'CSS'] },
   { title: 'Backend', icon: 'server', items: ['FastAPI', 'Flask', 'Django', 'Node.js', 'Laravel', 'Odoo'] },
   { title: 'Frontend', icon: 'layout', items: ['React', 'React Native', 'Next.js', 'Bootstrap', 'jQuery'] },
+  { title: 'AI & ML', icon: 'brain', items: ['OpenAI GPT', 'Claude', 'Claude Code', 'Deep Review (skill)', 'Retell AI', 'RAG systems', 'Pinecone', 'MCP'] },
   { title: 'Databases', icon: 'database', items: ['PostgreSQL', 'MongoDB', 'Supabase', 'Cosmos DB', 'Azure DB'] },
   { title: 'Cloud', icon: 'cloud', items: ['AWS (Lambda, IAM, Cognito)', 'Azure (DevOps, App Services)', 'GCP (Cloud Run, Build)'] },
-  { title: 'AI & ML', icon: 'brain', items: ['OpenAI GPT', 'Claude', 'Retell AI', 'RAG systems', 'Pinecone', 'MCP'] },
+  { title: 'Hosting & Deploy', icon: 'rocket', items: ['Vercel', 'Railway', 'Render', 'Replit', 'GitHub Pages'] },
   { title: 'Automation', icon: 'workflow', items: ['n8n', 'Zapier', 'Make.com'] },
-  { title: 'DevOps & CI/CD', icon: 'gitbranch', items: ['Docker', 'GitHub Actions', 'Azure DevOps', 'AWS CodePipeline', 'Git'] },
+  { title: 'DevOps & CI/CD', icon: 'gitbranch', items: ['Docker', 'GitHub Actions', 'CI/CD pipelines', 'Azure DevOps', 'AWS CodePipeline', 'CodeRabbit', 'Git'] },
   { title: 'Security & Auth', icon: 'shield', items: ['JWT', 'OAuth 2.0', 'RBAC', 'AWS IAM', 'Cognito'] },
-  { title: 'Observability', icon: 'activity', items: ['Prometheus', 'Grafana', 'CloudWatch', 'Power BI'] },
+  { title: 'Monitoring & Analytics', icon: 'activity', items: ['Sentry', 'PostHog', 'Google Analytics', 'Lighthouse', 'Prometheus', 'Grafana', 'CloudWatch', 'Power BI'] },
   { title: 'Integrations', icon: 'plug', items: ['Dynamics 365', 'Discourse', 'Dialpad', 'Remine', 'Crexi', 'Stripe'] },
-  { title: 'Dev Tools', icon: 'wrench', items: ['Cursor', 'Windsurf', 'v0', 'Vercel'] },
+  { title: 'Dev Tools', icon: 'wrench', items: ['Cursor', 'Windsurf', 'v0', 'Notion'] },
 ]
 
 export interface Project {
