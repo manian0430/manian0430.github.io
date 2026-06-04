@@ -53,7 +53,7 @@ export const skillGroups: SkillGroup[] = [
   { title: 'Cloud', icon: 'cloud', items: ['AWS (Lambda, IAM, Cognito)', 'Azure (DevOps, App Services)', 'GCP (Cloud Run, Build)'] },
   { title: 'Hosting & Deploy', icon: 'rocket', items: ['Vercel', 'Railway', 'Render', 'Replit', 'GitHub Pages'] },
   { title: 'Automation', icon: 'workflow', items: ['n8n', 'Zapier', 'Make.com'] },
-  { title: 'DevOps & CI/CD', icon: 'gitbranch', items: ['Docker', 'GitHub Actions', 'CI/CD pipelines', 'Azure DevOps', 'AWS CodePipeline', 'CodeRabbit', 'Git'] },
+  { title: 'DevOps & CI/CD', icon: 'gitbranch', items: ['Docker', 'Kubernetes', 'GitHub Actions', 'CI/CD pipelines', 'Azure DevOps', 'AWS CodePipeline', 'CodeRabbit', 'Git'] },
   { title: 'Security & Auth', icon: 'shield', items: ['JWT', 'OAuth 2.0', 'RBAC', 'AWS IAM', 'Cognito'] },
   { title: 'Monitoring & Analytics', icon: 'activity', items: ['Sentry', 'PostHog', 'Google Analytics', 'Lighthouse', 'Prometheus', 'Grafana', 'CloudWatch', 'Power BI'] },
   { title: 'Integrations', icon: 'plug', items: ['Dynamics 365', 'Discourse', 'Dialpad', 'Remine', 'Crexi', 'Stripe'] },
