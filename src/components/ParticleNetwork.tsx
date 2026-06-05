@@ -8,8 +8,8 @@ interface P {
   c: string
 }
 
-const NODE_COLORS = ['rgba(34,197,94,0.9)', 'rgba(56,189,248,0.85)'] // green, cyan
-const LINK = '45,212,191' // teal between green & cyan
+const NODE_COLORS = ['rgba(226,232,240,0.55)', 'rgba(148,163,184,0.5)'] // neutral light / slate
+const LINK = '148,163,184' // neutral slate
 const MAX_DIST = 135
 const MOUSE_DIST = 170
 

@@ -6,12 +6,12 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-  /* Surfaces (deep navy-black) */
-  --color-bg: #080b14;
-  --color-surface: #0e1626;
-  --color-surface-2: #141d31;
-  --color-line: #1e293b;
-  --color-line-soft: #172033;
+  /* Surfaces (true black for crisp accents) */
+  --color-bg: #050506;
+  --color-surface: #131318;
+  --color-surface-2: #1c1c22;
+  --color-line: #2a2a32;
+  --color-line-soft: #18181d;
 
   /* Text */
   --color-ink: #f8fafc;

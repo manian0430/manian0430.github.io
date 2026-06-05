@@ -1,23 +1,39 @@
 import { Github, Mail, Phone, ArrowRight, Code2 } from 'lucide-react'
 import { profile, navLinks } from '../data/content'
 
-// jagged "equalizer / code skyline" top edge — deterministic heights (no Math.random)
-const bars = Array.from({ length: 32 }, (_, i) =>
-  18 + Math.round((Math.sin(i * 0.9) * 0.5 + 0.5) * 42) + (i % 4 === 0 ? 16 : 0),
-)
+// Smooth, organic "molten drip" top edge — varied tongues joined by bezier curves (deterministic)
+const W = 1200
+const DRIP = (() => {
+  const n = 13
+  const pts: [number, number][] = []
+  for (let i = 0; i <= n; i++) {
+    const x = (i / n) * W
+    const y = 82 + Math.sin(i * 1.5) * 36 + Math.sin(i * 0.8 + 1.3) * 24 + Math.sin(i * 3.2) * 11
+    pts.push([x, Math.max(14, Math.min(154, y))])
+  }
+  let d = `M 0,0 L 0,${pts[0][1].toFixed(1)}`
+  for (let i = 0; i < pts.length - 1; i++) {
+    const xc = ((pts[i][0] + pts[i + 1][0]) / 2).toFixed(1)
+    const yc = ((pts[i][1] + pts[i + 1][1]) / 2).toFixed(1)
+    d += ` Q ${pts[i][0].toFixed(1)},${pts[i][1].toFixed(1)} ${xc},${yc}`
+  }
+  const last = pts[pts.length - 1]
+  d += ` L ${last[0].toFixed(1)},${last[1].toFixed(1)} L ${W},0 Z`
+  return d
+})()
 
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="relative overflow-hidden bg-accent text-bg">
-      {/* Code-skyline top edge (dark teeth dripping from the page above into the green) */}
-      <div className="absolute inset-x-0 top-0 flex items-start gap-1.5 px-1.5" aria-hidden>
-        {bars.map((h, i) => (
-          <span key={i} className="flex-1 rounded-b-xl bg-bg" style={{ height: h }} />
-        ))}
+    <footer className="relative overflow-hidden bg-accent text-bg" data-cursor-invert>
+      {/* Smooth organic molten-drip top edge */}
+      <div className="absolute inset-x-0 top-0" aria-hidden>
+        <svg viewBox="0 0 1200 170" preserveAspectRatio="none" className="block w-full" style={{ height: 150 }}>
+          <path d={DRIP} className="fill-bg" />
+        </svg>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-32">
+      <div className="relative mx-auto max-w-6xl px-6 pt-44">
         {/* 3-column row */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
           {/* Navigation */}
@@ -40,6 +56,7 @@ export function Footer() {
             <p className="mt-2 font-medium text-bg/80">Interested in working together?</p>
             <a
               href="#contact"
+              data-cursor-invert="false"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-bg px-6 py-3 font-bold text-accent transition-transform hover:scale-105"
             >
               Let's Chat! <ArrowRight className="h-4 w-4" />
@@ -79,14 +96,14 @@ export function Footer() {
             </span>
           </div>
         </div>
-
-        {/* Giant wordmark */}
-        <a href="#home" aria-label="Back to top" className="mt-10 block select-none">
-          <span className="mono block text-center font-bold leading-[0.78] tracking-tighter text-bg text-[22vw]">
-            ian.dev
-          </span>
-        </a>
       </div>
+
+      {/* Giant wordmark — full-bleed so it centers in the viewport and never clips */}
+      <a href="#home" aria-label="Back to top" className="relative block select-none pb-3 pt-8">
+        <span className="mono block text-center font-bold leading-[0.78] tracking-tighter text-bg text-[22vw]">
+          ian.dev
+        </span>
+      </a>
     </footer>
   )
 }

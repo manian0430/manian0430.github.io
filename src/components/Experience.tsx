@@ -78,25 +78,79 @@ function Row({ exp, defaultOpen }: { exp: Exp; defaultOpen?: boolean }) {
   )
 }
 
+function Snapshot() {
+  const current = experience[0]
+  const stats = [
+    { v: '6+', l: 'Years' },
+    { v: String(experience.length), l: 'Roles' },
+    { v: '4', l: 'Industries' },
+  ]
+  return (
+    <div className="card p-6">
+      <p className="mono mb-5 text-xs uppercase tracking-[0.18em] text-ink-faint">// snapshot</p>
+      <div className="grid grid-cols-3 gap-2 text-center">
+        {stats.map((s) => (
+          <div key={s.l}>
+            <div className="text-2xl font-bold text-accent">{s.v}</div>
+            <div className="mono mt-1 text-[11px] text-ink-faint">{s.l}</div>
+          </div>
+        ))}
+      </div>
+      <div className="my-5 h-px bg-line" />
+      <p className="mono mb-2 text-[11px] uppercase tracking-[0.16em] text-ink-faint">Currently</p>
+      <div className="flex items-start gap-2.5">
+        <span className="relative mt-1.5 flex h-2 w-2 flex-shrink-0">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+        </span>
+        <div>
+          <p className="font-semibold leading-snug text-ink">{current.company}</p>
+          <p className="text-sm text-ink-soft">{current.role}</p>
+        </div>
+      </div>
+      <div className="my-5 h-px bg-line" />
+      <p className="mono mb-2 text-[11px] uppercase tracking-[0.16em] text-ink-faint">Open to</p>
+      <div className="flex flex-wrap gap-1.5">
+        <span className="mono inline-flex items-center gap-1.5 rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 text-xs text-accent">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Available
+        </span>
+        {['Remote', 'Freelance', 'Full-time', 'Contract'].map((t) => (
+          <span key={t} className="mono rounded-md bg-surface-2 px-2 py-0.5 text-xs text-ink-soft">
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function Experience() {
   return (
     <section id="experience" className="py-24">
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionHeading index="04" title="Experience" subtitle="6+ years across fintech, real estate, AI and enterprise." />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
-          className="relative"
-        >
-          {/* connecting line */}
-          <div className="absolute bottom-2 left-0 top-2 w-px bg-line" />
-          {experience.map((exp, i) => (
-            <Row key={exp.company + exp.date} exp={exp} defaultOpen={i === 0} />
-          ))}
-        </motion.div>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5 }}
+            className="relative order-2 lg:order-1"
+          >
+            {/* connecting line */}
+            <div className="absolute bottom-2 left-0 top-2 w-px bg-line" />
+            {experience.map((exp, i) => (
+              <Row key={exp.company + exp.date} exp={exp} defaultOpen={i === 0} />
+            ))}
+          </motion.div>
+
+          <div className="order-1 lg:order-2">
+            <div className="lg:sticky lg:top-28">
+              <Snapshot />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

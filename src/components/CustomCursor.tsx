@@ -27,6 +27,7 @@ export function CustomCursor() {
     let hovering = false
     let down = false
     let visible = false
+    let onGreen = false // over the green footer → invert cursor to dark
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX
@@ -34,6 +35,8 @@ export function CustomCursor() {
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`
       const t = e.target as HTMLElement | null
       hovering = Boolean(t && t.closest(INTERACTIVE))
+      const inv = t && t.closest('[data-cursor-invert]')
+      onGreen = inv ? inv.getAttribute('data-cursor-invert') !== 'false' : false
       dot.style.opacity = hovering ? '0' : '1'
       if (!visible) {
         visible = true
@@ -56,7 +59,14 @@ export function CustomCursor() {
       const target = hovering ? 1.8 : down ? 0.8 : 1
       sc += (target - sc) * 0.22
       ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${sc})`
-      ring.style.backgroundColor = hovering ? 'rgba(34,197,94,0.12)' : 'transparent'
+      // Invert to dark over green surfaces, else stay accent green
+      dot.style.backgroundColor = onGreen ? '#050506' : '#22c55e'
+      ring.style.borderColor = onGreen ? 'rgba(5,5,6,0.85)' : 'rgba(34,197,94,0.7)'
+      ring.style.backgroundColor = hovering
+        ? onGreen
+          ? 'rgba(5,5,6,0.18)'
+          : 'rgba(34,197,94,0.12)'
+        : 'transparent'
       raf = requestAnimationFrame(loop)
     }
 

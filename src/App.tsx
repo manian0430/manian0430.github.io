@@ -1,4 +1,3 @@
-import { ParticleNetwork } from './components/ParticleNetwork'
 import { CustomCursor } from './components/CustomCursor'
 import { ScrollProgress } from './components/ui/ScrollProgress'
 import { Navbar } from './components/Navbar'
@@ -13,7 +12,6 @@ import { Footer } from './components/Footer'
 export default function App() {
   return (
     <>
-      <ParticleNetwork />
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
